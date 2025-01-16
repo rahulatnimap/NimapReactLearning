@@ -1,24 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import TimeOut from './components/TimeOut';
+import IntervalOut from './components/IntervalOut';
+import FormValidation from './components/FormValidation';
+import PropDisplay from './components/props/PropDisplay';
+ 
 
 function App() {
+  const UserData = [
+    {
+      name : "ankit",
+      role : "Eng",
+      age : 30
+    },
+    {
+      name : "Ankur",
+      role : "Driver",
+      age : 21
+    },
+    {
+      name : "Deepak",
+      role : "Smoker",
+      age : 45
+    }
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {/* <TimeOut/>
+    <IntervalOut/>
+    <FormValidation/> */}
+<PropDisplay data = {UserData}/>
+    </>
   );
 }
 
