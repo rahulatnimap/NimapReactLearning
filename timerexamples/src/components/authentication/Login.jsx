@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
-const Login = (prop) => {
-  const route = useNavigate()
-
+const Login = ({ data  }) => {
+  const route = useNavigate();
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(prop.data);
-    let user = prop.data.find((ele => { return ele.mail === email && ele.pass === password }));
+    let user = data.find((ele => { console.log(ele , "ele" )
+    return  ele.email === email && ele.pass === password} ));
+    console.log(user);
+   console.log(email  , password);
+   
+
+    
     if (!user) {
       alert("Not a User! , No problem Become one")
-      route("/Register")
+      // route("/Register")
 
     } else {
       window.localStorage.setItem("Token", 1234);

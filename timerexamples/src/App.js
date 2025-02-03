@@ -10,39 +10,26 @@ import Register from './components/authentication/Register';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './components/authentication/Dashboard';
 import AuthNavbar from './components/Auth-navbar/AuthNavbar';
+import { useState } from 'react';
+import RefExamples from './components/Ref/RefExamples';
+import RefDom from './components/Ref/RefDom';
  
 
 function App() {
-  const UserData = [
-    {
-      mail : "ankit@nimap",
-      pass : "123",
-      name : "ankit",
-      role : "Eng",
-      age : 30
-    },
-    {
-      mail : "anukur@nimap",
-      pass : 123,
-      name : "Ankur",
-      role : "Driver",
-      age : 21
-    },
-    {
-      mail : "deepak@nimap",
-      pass : 123,
-      name : "Deepak",
-      role : "Smoker",
-      age : 45
-    }
-  ]
+
+  const [userData , setUserData] = useState([]);
+
+  console.log(userData , "App Log");
+  
   return (
     <>
       <AuthNavbar/>
     <Routes>
-      <Route path='/' element={<Login data={UserData}/>} />
+      <Route path='/' element={<Login data={userData}/>} />
       <Route path='/dash' element={<Dashboard/>} />
-      <Route path='/register' element={<Register/>} />
+      <Route path='/register' element={<Register data={userData} setData = {setUserData}/>} />
+      <Route path='/useRef' element={<RefExamples/>}/>
+      <Route path='/useRefDom' element={<RefDom/>}/>
 
     </Routes>
     </>

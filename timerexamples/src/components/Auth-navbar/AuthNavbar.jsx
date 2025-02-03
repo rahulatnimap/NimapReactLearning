@@ -18,6 +18,9 @@ const AuthNavbar = () => {
         <h3 onClick={()=> token ? alert("already logged in") : route("/") }>Login</h3>
         <h3 onClick={()=> token ? alert("already logged in") : route("/register") }>Register</h3>
         <h3 onClick={handleDashclick}>Dashboard</h3>
+        <button onClick={()=> route('/useRef')}>Ref</button>
+        <button onClick={()=> route('/useRefDom')}>RefDom</button>
+
 
     </div>
   )
